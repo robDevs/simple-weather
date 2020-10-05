@@ -49,6 +49,24 @@ void Controller::Loop() {
   //view.freeSounds();
 }
 
+void Controller::drawDay(int x, int index) {
+    View::instance()->drawRectBorders(x, 30 + 45 + 10, 240, 400, WHITE, BLACK);
+
+    View::instance()->drawText(city.get_day_time(index, 0), x + 10, 30 + 45 + 10, 25, WHITE);
+    View::instance()->drawText(city.get_day_time(index, 1), x + 10, 30 + 45 + 10 + 30, 25, WHITE);
+
+    View::instance()->drawTexture(x, 30 + 65, city.get_day_icon(index), WHITE);
+
+    std::string weather_string = city.get_day_desc(index);
+    View::instance()->drawText(weather_string.c_str(), x + 10, 30 + 150 + 100, 25, WHITE);
+
+    weather_string = "High: " + city.get_day_high(index);
+    View::instance()->drawText(weather_string.c_str(), x + 10, 30 + 150 + 100 + 45, 35, WHITE);
+
+    weather_string = "Low: " + city.get_day_low(index);
+    View::instance()->drawText(weather_string.c_str(), x + 10, 30 + 150 + 100 + 45 + 45, 35, WHITE);
+}
+
 void Controller::showUI() {
     View::instance()->startFrame();
 
@@ -62,6 +80,13 @@ void Controller::showUI() {
     View::instance()->drawText("Current Temp:", 20, 720 - 80 - 55 - 60, 45, GRAY);
 
     View::instance()->drawText(city.getTemp(), 20, 720 - 80 - 55, 55, WHITE);
+
+    View::instance()->drawTexture(1280 / 2 - 100, 720 - 80 - 55 - 140, city.getIcon(), WHITE);
+    View::instance()->drawText(city.getDesc(), 1280 / 2 - MeasureText(city.getDesc().c_str(), 55) / 2, 720 - 80 - 55, 55, WHITE);
+
+    for(int i = 0; i < 5; i++) {
+      drawDay(20+i*250, i);
+    }
 
     View::instance()->endFrame();
 }

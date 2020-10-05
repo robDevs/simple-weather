@@ -44,6 +44,7 @@ public:
   Controller();
   void doIntro();
   void Loop();
+  void drawDay(int x, int index);
   void showUI();
 };
 

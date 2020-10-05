@@ -20,6 +20,13 @@ This file is part of simple-weather.
 
 #include <string>
 
+struct Day {
+    double high, low;
+    int icon, time;
+    std::string weather_desc;
+};
+
+
 class City {
 private:
     std::string json;
@@ -27,8 +34,10 @@ private:
     std::string name, state, country;
     std::string time;
     double temp, feels_like;
-    int humidity;
-    std::string icon;
+    int icon;
+    std::string weather_desc;
+
+    Day days[5];
 
 public:
     void init(int id, std::string key);
@@ -37,6 +46,14 @@ public:
     std::string getCountry();
     std::string getTemp();
     std::string getFeel();
-};
+    int getIcon();
+    std::string getDesc();
 
+    std::string get_day_high(int index);
+    std::string get_day_low(int index);
+    std::string get_day_desc(int index);
+    int get_day_icon(int index);
+    std::string get_day_time(int index, int style);
+    
+};
 #endif

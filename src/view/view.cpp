@@ -178,21 +178,72 @@ void View::setScale(float width, float height,float *xScale, float *yScale) {
     *yScale = height/720.00;
 }
 
-bool View::loadTextures(float xScale, float yScale) {
+void View::loadTextureTemplate(int index, std::string path) {
     Image tempImage;
-
-    for(int i = 0; i < 0; i++) {
-        UnloadTexture(textures[i]);
-    }
-
-    //tempImage = LoadImage("assets/TitleScreen/BG/NoAlpha/BG_00000.png");
-    //ImageResizeNN(&tempImage, tempImage.width * xScale, tempImage.height * yScale);
-    //textures[0] = LoadTextureFromImage(tempImage);
+  
+    tempImage = LoadImage(path.c_str());
+    ImageResizeNN(&tempImage, tempImage.width * 2, tempImage.height * 2);
+    textures[index] = LoadTextureFromImage(tempImage);
     UnloadImage(tempImage);
 }
 
+bool View::loadTextures(float xScale, float yScale) {
+    Image tempImage;
+
+    for(int i = 0; i < 18; i++) {
+        UnloadTexture(textures[i]);
+    }
+
+    std::string path = " ";
+
+    path = "assets/01d.png";
+    loadTextureTemplate(0, path);
+    path = "assets/01n.png";
+    loadTextureTemplate(1, path);
+
+    path = "assets/02d.png";
+    loadTextureTemplate(2, path);
+    path = "assets/02n.png";
+    loadTextureTemplate(3, path);
+
+    path = "assets/03d.png";
+    loadTextureTemplate(4, path);
+    path = "assets/03n.png";
+    loadTextureTemplate(5, path);
+
+    path = "assets/04d.png";
+    loadTextureTemplate(6, path);
+    path = "assets/04n.png";
+    loadTextureTemplate(7, path);
+
+    path = "assets/09d.png";
+    loadTextureTemplate(8, path);
+    path = "assets/09n.png";
+    loadTextureTemplate(9, path);
+
+    path = "assets/10d.png";
+    loadTextureTemplate(10, path);
+    path = "assets/10n.png";
+    loadTextureTemplate(11, path);
+
+    path = "assets/11d.png";
+    loadTextureTemplate(12, path);
+    path = "assets/11n.png";
+    loadTextureTemplate(13, path);
+
+    path = "assets/13d.png";
+    loadTextureTemplate(14, path);
+    path = "assets/13n.png";
+    loadTextureTemplate(15, path);
+
+    path = "assets/50d.png";
+    loadTextureTemplate(16, path);
+    path = "assets/50n.png";
+    loadTextureTemplate(17, path);
+}
+
 void View::freeTextures() {
-    for(int i = 0; i < 0; i++) {
+    for(int i = 0; i < 18; i++) {
         UnloadTexture(textures[i]);
     }
     for(int i = 0; i < 0; i++) {

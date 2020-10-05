@@ -34,16 +34,16 @@ This file is part of simple-weather.
 #define i03n        6
 #define i04d        7
 #define i04n        8
-#define i05d        9
-#define i05n        10
-#define i06d        11
-#define i06n        12
-#define i07d        13
-#define i07n        14
-#define i08d        15
-#define i08n        16
-#define i09d        17
-#define i09n        18
+#define i09d        9
+#define i09n        10
+#define i10d        11
+#define i10n        12
+#define i11d        13
+#define i11n        14
+#define i13d        15
+#define i13n        16
+#define i50d        17
+#define i50n        18
 
 #define BURST_SPRITESHEET             0
 
@@ -108,6 +108,7 @@ public:
   void endFrame();
   bool getWindowStatus(); // check if the window should close (If x thing was pressed. )
   bool loadTextures(float xScale, float yScale); //return false if textures failed to load.
+  void loadTextureTemplate(int index, std::string path);
   void freeTextures();
   void drawTexture(int x, int y, int texture, Color color); // Draws a texture at the given pos.
   void drawText(std::string text, int x, int y, int size, Color color); // draws text at given pos.
