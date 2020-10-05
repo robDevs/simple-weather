@@ -18,6 +18,8 @@ This file is part of simple-weather.
 
 #include "view.h"
 
+View *View::s_instance = 0;
+
 void sprite_sheet::setFrames(std::string path, float xScale, float yScale) {
     float x = 0;
     float y = 0;

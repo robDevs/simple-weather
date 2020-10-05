@@ -26,6 +26,8 @@ This file is part of simple-weather.
 
 //#include "../Model/Model.h"
 #include "../view/view.h"
+#include "../model/city.h"
+
 
 #define STATUS_START        0
 #define STATUS_LOOP         1
@@ -33,7 +35,8 @@ This file is part of simple-weather.
 
 class Controller {
 private:
-  View view;
+  //View view;
+  City city;
   int gamestatus;
   float xScale, yScale;
 

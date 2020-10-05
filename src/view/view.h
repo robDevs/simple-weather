@@ -26,7 +26,24 @@ This file is part of simple-weather.
 
 #include <iostream>
 
-#define BG_00001        1
+#define i01d        1
+#define i01n        2
+#define i02d        3
+#define i02n        4
+#define i03d        5
+#define i03n        6
+#define i04d        7
+#define i04n        8
+#define i05d        9
+#define i05n        10
+#define i06d        11
+#define i06n        12
+#define i07d        13
+#define i07n        14
+#define i08d        15
+#define i08n        16
+#define i09d        17
+#define i09n        18
 
 #define BURST_SPRITESHEET             0
 
@@ -75,10 +92,13 @@ class View {
 private:
   float screenWidth;
   float screenHeight;
-  Texture2D textures[1];
+  Texture2D textures[18];
   sprite_sheet sprite_sheets[1];
 
   Sound sounds[1];
+
+  static View *s_instance;
+
 
 public:
   void initView(int width, int height, float *xScale, float *yScale); // Create a window with the given attributes.
@@ -108,6 +128,13 @@ public:
   void playSound(int Sound);
   void stodSound(int Sound);
   void loopSound(int Sound);
+
+  static View *instance()
+    {
+        if (!s_instance)
+          s_instance = new View;
+        return s_instance;
+    }
 };
 
 #endif
