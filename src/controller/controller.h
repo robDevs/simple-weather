@@ -36,6 +36,7 @@ This file is part of simple-weather.
 class Controller {
 private:
   //View view;
+  textBox city_input;
   City city;
   int gamestatus;
   float xScale, yScale;

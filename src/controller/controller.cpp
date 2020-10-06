@@ -26,6 +26,8 @@ Controller::Controller() {
 
   city.init(1, "885c28e2cc75e558523fd7d325efb1df");
 
+  city_input.init(30, 720 - 50, 200, 40, 100);
+
   Loop();
 }
 
@@ -68,9 +70,12 @@ void Controller::drawDay(int x, int index) {
 }
 
 void Controller::showUI() {
+    city_input.update();
     View::instance()->startFrame();
 
     View::instance()->drawRectBorders(10, 10, 1280 - 20, 720 - 80, WHITE, BLACK);
+
+    city_input.draw();
 
     View::instance()->drawText("Missoula Montana, US", 1280 / 2 - MeasureText("Missoula Montana, US", 45) / 2, 30, 45, GRAY);
 

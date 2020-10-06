@@ -60,7 +60,7 @@ void sprite_sheet::unloadTexture() {
   UnloadTexture(texture);
 }
 
-textBox::textBox(int x, int y, int w, int h, int max) {
+void textBox::init(int x, int y, int w, int h, int max) {
     for(int i = 0; i < MAX_INPUT_CHARS + 1; i++) {
         message[i] = '\0';
     }
